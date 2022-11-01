@@ -1,0 +1,3 @@
+[console_scripts]
+ml_example_train = src.train:train_pipeline_command
+
