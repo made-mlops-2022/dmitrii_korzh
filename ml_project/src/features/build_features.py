@@ -6,7 +6,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
 
 from src.entities.feature_params import FeatureParams
-
+from src.transformers import CustomScaler
 
 def process_categorical_features(categorical_df: pd.DataFrame) -> pd.DataFrame:
 
@@ -31,7 +31,10 @@ def process_numerical_features(numerical_df: pd.DataFrame) -> pd.DataFrame:
 
 def build_numerical_pipeline() -> Pipeline:
     num_pipeline = Pipeline(
-        [("impute", SimpleImputer(missing_values=np.nan, strategy="mean")),]
+        [
+            ("impute", SimpleImputer(missing_values=np.nan, strategy="mean")),
+            ("scaler", CustomScaler()),
+            ]
     )
     return num_pipeline
 
@@ -60,6 +63,6 @@ def build_transformer(params: FeatureParams) -> ColumnTransformer:
 
 def extract_target(df: pd.DataFrame, params: FeatureParams) -> pd.Series:
     target = df[params.target_col]
-    if params.use_log_trick:
-        target = pd.Series(np.log(target.to_numpy()))
+    # if params.use_log_trick:
+    #     target = pd.Series(np.log(target.to_numpy()))
     return target

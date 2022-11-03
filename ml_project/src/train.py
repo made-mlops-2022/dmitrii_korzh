@@ -33,16 +33,16 @@ logger.addHandler(handler)
 
 def train_pipeline(config_path: str):
     training_pipeline_params = read_training_pipeline_params(config_path)
-
     if training_pipeline_params.use_mlflow:
+        pass
 
-        mlflow.set_tracking_uri(training_pipeline_params.mlflow_uri)
-        mlflow.set_experiment(training_pipeline_params.mlflow_experiment)
-        with mlflow.start_run():
-            mlflow.log_artifact(config_path)
-            model_path, metrics = run_train_pipeline(training_pipeline_params)
-            mlflow.log_metrics(metrics)
-            mlflow.log_artifact(model_path)
+        # mlflow.set_tracking_uri(training_pipeline_params.mlflow_uri)
+        # mlflow.set_experiment(training_pipeline_params.mlflow_experiment)
+        # with mlflow.start_run():
+        #     mlflow.log_artifact(config_path)
+        #     model_path, metrics = run_train_pipeline(training_pipeline_params)
+        #     mlflow.log_metrics(metrics)
+        #     mlflow.log_artifact(model_path)
     else:
         return run_train_pipeline(training_pipeline_params)
 
@@ -89,7 +89,10 @@ def run_train_pipeline(training_pipeline_params):
     metrics = evaluate_model(
         predicts,
         val_target,
-        use_log_trick=training_pipeline_params.feature_params.use_log_trick,
+        use_log_trick=False,
+        model_name=training_pipeline_params.train_params.model_type
+
+
     )
     with open(training_pipeline_params.metric_path, "w") as metric_file:
         json.dump(metrics, metric_file)

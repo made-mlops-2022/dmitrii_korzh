@@ -19,13 +19,19 @@ def read_data(path: str) -> pd.DataFrame:
 
 
 def split_train_val_data(
-    data: pd.DataFrame, params: SplittingParams
+    data: pd.DataFrame, params: SplittingParams, isPredict=False
 ) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """
 
     :rtype: object
     """
-    train_data, val_data = train_test_split(
-        data, test_size=params.val_size, random_state=params.random_state
-    )
+    if isPredict == False:
+        train_data, val_data = train_test_split(
+            data, test_size=params.val_size, random_state=params.random_state
+        )
+    else:
+        train_data = None
+        val_data = data
+    # train_data = train_data.reset_index()
+    # val_data = val_data.reset_index()
     return train_data, val_data

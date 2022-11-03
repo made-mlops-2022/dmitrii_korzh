@@ -1,0 +1,34 @@
+path_to_data: 'data/heart_cleveland_upload.csv'
+path_to_model: 'models/model.pkl'
+# metric_path: 'models/val_metrics_test.json'
+path_to_output: 'models/preds.npy'
+
+splitting_params:
+  val_size: 1.0 
+  random_state: 42 
+
+train_params:
+  model_type: 'LogisticRegression' 
+  random_state: 42
+
+    # path_to_output: str
+
+
+feature_params:
+  categorical_features:
+    - 'sex'
+    - 'cp'
+    - 'fbs'
+    - 'restecg'
+    - 'exang'
+    - 'slope'
+    - 'ca'
+    - 'thal'
+  numerical_features:
+    - 'age'
+    - 'trestbps'
+    - 'chol'
+    - 'thalach'
+    - 'oldpeak'
+  target_col: 'condition'
+  features_to_drop: []

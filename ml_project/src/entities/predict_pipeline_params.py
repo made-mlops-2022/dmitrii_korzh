@@ -5,7 +5,10 @@ from marshmallow_dataclass import class_schema
 import yaml
 
 from .feature_params import FeatureParams
-
+from .download_params import DownloadParams
+from .split_params import SplittingParams
+from .feature_params import FeatureParams
+from .train_params import TrainingParams
 
 @dataclass()
 class PredictPipelineParams:
@@ -13,6 +16,13 @@ class PredictPipelineParams:
     path_to_output: str
     path_to_model: str
     feature_params: FeatureParams
+    splitting_params: SplittingParams
+    feature_params: FeatureParams
+    train_params: TrainingParams
+    downloading_params: Optional[DownloadParams] = None
+    use_mlflow: bool = False
+    mlflow_uri: str = "http://18.156.5.226/"
+    mlflow_experiment: str = "inference_demo"
 
 
 PredictPipelineParamsSchema = class_schema(PredictPipelineParams)
