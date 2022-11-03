@@ -10,3 +10,15 @@
  1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
  1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
  1]
+2022-11-03 18:29:25,689	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 18:29:25,693	INFO	data.shape is (297, 14)
+2022-11-03 18:29:25,694	INFO	test_df.shape is (297, 13)
+2022-11-03 18:29:25,707	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
