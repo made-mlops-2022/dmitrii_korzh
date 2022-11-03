@@ -22,3 +22,659 @@
  1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
  1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
  1]
+2022-11-03 20:25:24,994	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 20:25:25,009	INFO	data.shape is (297, 14)
+2022-11-03 20:25:25,014	INFO	test_df.shape is (297, 13)
+2022-11-03 20:25:25,032	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 20:26:24,416	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 20:26:24,421	INFO	data.shape is (297, 14)
+2022-11-03 20:26:24,427	INFO	test_df.shape is (297, 13)
+2022-11-03 20:26:24,444	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 20:27:26,115	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 20:27:26,119	INFO	data.shape is (297, 14)
+2022-11-03 20:27:26,121	INFO	test_df.shape is (297, 13)
+2022-11-03 20:27:26,135	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 20:28:15,713	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 20:28:15,721	INFO	data.shape is (297, 14)
+2022-11-03 20:28:15,726	INFO	test_df.shape is (297, 13)
+2022-11-03 20:28:15,739	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 20:28:40,020	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 20:28:40,024	INFO	data.shape is (297, 14)
+2022-11-03 20:28:40,026	INFO	test_df.shape is (297, 13)
+2022-11-03 20:28:40,039	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 20:29:01,443	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 20:29:01,448	INFO	data.shape is (297, 14)
+2022-11-03 20:29:01,450	INFO	test_df.shape is (297, 13)
+2022-11-03 20:29:01,461	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 20:42:41,219	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 20:42:41,239	INFO	data.shape is (297, 14)
+2022-11-03 20:42:41,247	INFO	test_df.shape is (297, 13)
+2022-11-03 20:42:41,264	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 20:47:53,842	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 20:47:53,859	INFO	data.shape is (297, 14)
+2022-11-03 20:47:53,864	INFO	test_df.shape is (297, 13)
+2022-11-03 20:47:53,878	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 20:51:09,655	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 20:51:09,663	INFO	data.shape is (297, 14)
+2022-11-03 20:51:09,667	INFO	test_df.shape is (297, 13)
+2022-11-03 20:51:09,679	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 20:51:09,689	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 20:51:09,692	INFO	data.shape is (1, 13)
+2022-11-03 20:51:09,692	INFO	test_df.shape is (1, 13)
+2022-11-03 20:51:09,701	INFO	predicts are [0]
+2022-11-03 21:06:50,573	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:06:50,581	INFO	data.shape is (297, 14)
+2022-11-03 21:06:50,585	INFO	test_df.shape is (297, 13)
+2022-11-03 21:06:50,596	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:06:50,607	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:06:50,609	INFO	data.shape is (1, 13)
+2022-11-03 21:06:50,610	INFO	test_df.shape is (1, 13)
+2022-11-03 21:06:50,618	INFO	predicts are [0]
+2022-11-03 21:07:39,974	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:07:39,987	INFO	data.shape is (297, 14)
+2022-11-03 21:07:39,993	INFO	test_df.shape is (297, 13)
+2022-11-03 21:07:40,008	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:07:40,020	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:07:40,022	INFO	data.shape is (1, 13)
+2022-11-03 21:07:40,024	INFO	test_df.shape is (1, 13)
+2022-11-03 21:07:40,030	INFO	predicts are [0]
+2022-11-03 21:07:57,762	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:07:57,769	INFO	data.shape is (297, 14)
+2022-11-03 21:07:57,772	INFO	test_df.shape is (297, 13)
+2022-11-03 21:07:57,785	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:07:57,795	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:07:57,797	INFO	data.shape is (1, 13)
+2022-11-03 21:07:57,801	INFO	test_df.shape is (1, 13)
+2022-11-03 21:07:57,807	INFO	predicts are [0]
+2022-11-03 21:14:59,182	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:14:59,193	INFO	data.shape is (297, 14)
+2022-11-03 21:14:59,200	INFO	test_df.shape is (297, 13)
+2022-11-03 21:14:59,214	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:14:59,222	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:14:59,224	INFO	data.shape is (1, 13)
+2022-11-03 21:14:59,225	INFO	test_df.shape is (1, 13)
+2022-11-03 21:14:59,231	INFO	predicts are [0]
+2022-11-03 21:18:04,365	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:18:04,368	INFO	data.shape is (297, 14)
+2022-11-03 21:18:04,369	INFO	test_df.shape is (297, 13)
+2022-11-03 21:18:04,379	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:18:04,387	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:18:04,389	INFO	data.shape is (1, 13)
+2022-11-03 21:18:04,389	INFO	test_df.shape is (1, 13)
+2022-11-03 21:18:04,398	INFO	predicts are [0]
+2022-11-03 21:18:16,746	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:18:16,749	INFO	data.shape is (297, 14)
+2022-11-03 21:18:16,751	INFO	test_df.shape is (297, 13)
+2022-11-03 21:18:16,758	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:18:16,769	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:18:16,771	INFO	data.shape is (1, 13)
+2022-11-03 21:18:16,771	INFO	test_df.shape is (1, 13)
+2022-11-03 21:18:16,779	INFO	predicts are [0]
+2022-11-03 21:19:58,717	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:19:58,720	INFO	data.shape is (297, 14)
+2022-11-03 21:19:58,723	INFO	test_df.shape is (297, 13)
+2022-11-03 21:19:58,732	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:19:58,739	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:19:58,743	INFO	data.shape is (1, 13)
+2022-11-03 21:19:58,744	INFO	test_df.shape is (1, 13)
+2022-11-03 21:19:58,753	INFO	predicts are [1]
+2022-11-03 21:20:23,786	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:20:23,790	INFO	data.shape is (297, 14)
+2022-11-03 21:20:23,791	INFO	test_df.shape is (297, 13)
+2022-11-03 21:20:23,800	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:20:23,806	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:20:23,809	INFO	data.shape is (1, 13)
+2022-11-03 21:20:23,810	INFO	test_df.shape is (1, 13)
+2022-11-03 21:20:23,817	INFO	predicts are [0]
+2022-11-03 21:21:04,185	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:21:04,189	INFO	data.shape is (297, 14)
+2022-11-03 21:21:04,191	INFO	test_df.shape is (297, 13)
+2022-11-03 21:21:04,201	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:21:04,210	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:21:04,212	INFO	data.shape is (1, 13)
+2022-11-03 21:21:04,217	INFO	test_df.shape is (1, 13)
+2022-11-03 21:21:04,224	INFO	predicts are [1]
+2022-11-03 21:23:41,920	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:23:41,932	INFO	data.shape is (297, 14)
+2022-11-03 21:23:41,937	INFO	test_df.shape is (297, 13)
+2022-11-03 21:23:41,950	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:23:41,961	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:23:41,962	INFO	data.shape is (1, 13)
+2022-11-03 21:23:41,963	INFO	test_df.shape is (1, 13)
+2022-11-03 21:23:41,972	INFO	predicts are [0]
+2022-11-03 21:24:12,696	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:24:12,699	INFO	data.shape is (297, 14)
+2022-11-03 21:24:12,701	INFO	test_df.shape is (297, 13)
+2022-11-03 21:24:12,709	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:24:12,717	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:24:12,719	INFO	data.shape is (1, 13)
+2022-11-03 21:24:12,720	INFO	test_df.shape is (1, 13)
+2022-11-03 21:24:12,729	INFO	predicts are [0]
+2022-11-03 21:25:18,757	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:25:18,768	INFO	data.shape is (297, 14)
+2022-11-03 21:25:18,773	INFO	test_df.shape is (297, 13)
+2022-11-03 21:25:18,787	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:25:18,798	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:25:18,800	INFO	data.shape is (1, 13)
+2022-11-03 21:25:18,800	INFO	test_df.shape is (1, 13)
+2022-11-03 21:25:18,806	INFO	predicts are [0]
+2022-11-03 21:25:41,841	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:25:41,852	INFO	data.shape is (297, 14)
+2022-11-03 21:25:41,857	INFO	test_df.shape is (297, 13)
+2022-11-03 21:25:41,869	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:25:41,884	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:25:41,886	INFO	data.shape is (1, 13)
+2022-11-03 21:25:41,886	INFO	test_df.shape is (1, 13)
+2022-11-03 21:25:41,892	INFO	predicts are [0]
+2022-11-03 21:28:22,485	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:28:22,495	INFO	data.shape is (297, 14)
+2022-11-03 21:28:22,508	INFO	test_df.shape is (297, 13)
+2022-11-03 21:28:22,522	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:28:22,534	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:28:22,536	INFO	data.shape is (1, 13)
+2022-11-03 21:28:22,536	INFO	test_df.shape is (1, 13)
+2022-11-03 21:28:22,545	INFO	predicts are [0]
+2022-11-03 21:28:33,761	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:28:33,765	INFO	data.shape is (297, 14)
+2022-11-03 21:28:33,767	INFO	test_df.shape is (297, 13)
+2022-11-03 21:28:33,775	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:28:33,783	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:28:33,786	INFO	data.shape is (1, 13)
+2022-11-03 21:28:33,787	INFO	test_df.shape is (1, 13)
+2022-11-03 21:28:33,793	INFO	predicts are [0]
+2022-11-03 21:29:48,478	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:29:48,483	INFO	data.shape is (297, 14)
+2022-11-03 21:29:48,485	INFO	test_df.shape is (297, 13)
+2022-11-03 21:29:48,496	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:29:48,504	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:29:48,507	INFO	data.shape is (1, 13)
+2022-11-03 21:29:48,508	INFO	test_df.shape is (1, 13)
+2022-11-03 21:29:48,518	INFO	predicts are [0]
+2022-11-03 21:33:50,568	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:33:50,581	INFO	data.shape is (297, 14)
+2022-11-03 21:33:50,587	INFO	test_df.shape is (297, 13)
+2022-11-03 21:33:50,600	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:33:50,612	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:33:50,614	INFO	data.shape is (1, 13)
+2022-11-03 21:33:50,615	INFO	test_df.shape is (1, 13)
+2022-11-03 21:33:50,622	INFO	predicts are [1]
+2022-11-03 21:34:03,570	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:34:03,580	INFO	data.shape is (297, 14)
+2022-11-03 21:34:03,582	INFO	test_df.shape is (297, 13)
+2022-11-03 21:34:03,602	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:34:03,615	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:34:03,617	INFO	data.shape is (1, 13)
+2022-11-03 21:34:03,617	INFO	test_df.shape is (1, 13)
+2022-11-03 21:34:03,625	INFO	predicts are [0]
+2022-11-03 21:34:22,493	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:34:22,498	INFO	data.shape is (297, 14)
+2022-11-03 21:34:22,499	INFO	test_df.shape is (297, 13)
+2022-11-03 21:34:22,509	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:34:22,520	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:34:22,524	INFO	data.shape is (1, 13)
+2022-11-03 21:34:22,526	INFO	test_df.shape is (1, 13)
+2022-11-03 21:34:22,535	INFO	predicts are [0]
+2022-11-03 21:35:05,017	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:35:05,022	INFO	data.shape is (297, 14)
+2022-11-03 21:35:05,023	INFO	test_df.shape is (297, 13)
+2022-11-03 21:35:05,032	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:35:05,040	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:35:05,042	INFO	data.shape is (1, 13)
+2022-11-03 21:35:05,042	INFO	test_df.shape is (1, 13)
+2022-11-03 21:35:05,051	INFO	predicts are [0]
+2022-11-03 21:35:22,155	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:35:22,160	INFO	data.shape is (297, 14)
+2022-11-03 21:35:22,163	INFO	test_df.shape is (297, 13)
+2022-11-03 21:35:22,172	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:35:22,183	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:35:22,186	INFO	data.shape is (1, 13)
+2022-11-03 21:35:22,188	INFO	test_df.shape is (1, 13)
+2022-11-03 21:35:22,199	INFO	predicts are [0]
+2022-11-03 21:36:34,653	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:36:34,657	INFO	data.shape is (297, 14)
+2022-11-03 21:36:34,659	INFO	test_df.shape is (297, 13)
+2022-11-03 21:36:34,668	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:36:34,681	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:36:34,684	INFO	data.shape is (1, 13)
+2022-11-03 21:36:34,684	INFO	test_df.shape is (1, 13)
+2022-11-03 21:36:34,694	INFO	predicts are [1]
+2022-11-03 21:36:45,713	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:36:45,718	INFO	data.shape is (297, 14)
+2022-11-03 21:36:45,720	INFO	test_df.shape is (297, 13)
+2022-11-03 21:36:45,729	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:36:45,737	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:36:45,739	INFO	data.shape is (1, 13)
+2022-11-03 21:36:45,740	INFO	test_df.shape is (1, 13)
+2022-11-03 21:36:45,746	INFO	predicts are [0]
+2022-11-03 21:36:53,535	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:36:53,538	INFO	data.shape is (297, 14)
+2022-11-03 21:36:53,541	INFO	test_df.shape is (297, 13)
+2022-11-03 21:36:53,552	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:36:53,560	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:36:53,562	INFO	data.shape is (1, 13)
+2022-11-03 21:36:53,562	INFO	test_df.shape is (1, 13)
+2022-11-03 21:36:53,572	INFO	predicts are [0]
+2022-11-03 21:38:53,919	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:38:53,928	INFO	data.shape is (297, 14)
+2022-11-03 21:38:53,935	INFO	test_df.shape is (297, 13)
+2022-11-03 21:38:53,951	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:38:53,962	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:38:53,965	INFO	data.shape is (1, 13)
+2022-11-03 21:38:53,965	INFO	test_df.shape is (1, 13)
+2022-11-03 21:38:53,971	INFO	predicts are [1]
+2022-11-03 21:39:14,082	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:39:14,088	INFO	data.shape is (297, 14)
+2022-11-03 21:39:14,089	INFO	test_df.shape is (297, 13)
+2022-11-03 21:39:14,098	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:39:14,105	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:39:14,108	INFO	data.shape is (1, 13)
+2022-11-03 21:39:14,108	INFO	test_df.shape is (1, 13)
+2022-11-03 21:39:14,114	INFO	predicts are [0]
+2022-11-03 21:40:13,028	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:40:13,037	INFO	data.shape is (297, 14)
+2022-11-03 21:40:13,042	INFO	test_df.shape is (297, 13)
+2022-11-03 21:40:13,054	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:40:13,062	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:40:13,064	INFO	data.shape is (1, 13)
+2022-11-03 21:40:13,065	INFO	test_df.shape is (1, 13)
+2022-11-03 21:40:13,074	INFO	predicts are [0]
+2022-11-03 21:40:24,245	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:40:24,248	INFO	data.shape is (297, 14)
+2022-11-03 21:40:24,250	INFO	test_df.shape is (297, 13)
+2022-11-03 21:40:24,260	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:40:24,270	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:40:24,272	INFO	data.shape is (1, 13)
+2022-11-03 21:40:24,272	INFO	test_df.shape is (1, 13)
+2022-11-03 21:40:24,280	INFO	predicts are [0]
+2022-11-03 21:41:23,327	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:41:23,331	INFO	data.shape is (297, 14)
+2022-11-03 21:41:23,333	INFO	test_df.shape is (297, 13)
+2022-11-03 21:41:23,342	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:41:23,351	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:41:23,354	INFO	data.shape is (1, 13)
+2022-11-03 21:41:23,355	INFO	test_df.shape is (1, 13)
+2022-11-03 21:41:23,362	INFO	predicts are [0]
+2022-11-03 21:41:48,344	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:41:48,347	INFO	data.shape is (297, 14)
+2022-11-03 21:41:48,349	INFO	test_df.shape is (297, 13)
+2022-11-03 21:41:48,358	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:41:48,367	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:41:48,370	INFO	data.shape is (1, 13)
+2022-11-03 21:41:48,371	INFO	test_df.shape is (1, 13)
+2022-11-03 21:41:48,377	INFO	predicts are [0]
+2022-11-03 21:42:06,899	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:42:06,902	INFO	data.shape is (297, 14)
+2022-11-03 21:42:06,904	INFO	test_df.shape is (297, 13)
+2022-11-03 21:42:06,913	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:42:06,921	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:42:06,923	INFO	data.shape is (1, 13)
+2022-11-03 21:42:06,923	INFO	test_df.shape is (1, 13)
+2022-11-03 21:42:06,930	INFO	predicts are [0]
+2022-11-03 21:42:17,691	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:42:17,695	INFO	data.shape is (297, 14)
+2022-11-03 21:42:17,696	INFO	test_df.shape is (297, 13)
+2022-11-03 21:42:17,707	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:42:17,714	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:42:17,717	INFO	data.shape is (1, 13)
+2022-11-03 21:42:17,719	INFO	test_df.shape is (1, 13)
+2022-11-03 21:42:17,734	INFO	predicts are [0]
+2022-11-03 21:42:33,696	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:42:33,699	INFO	data.shape is (297, 14)
+2022-11-03 21:42:33,700	INFO	test_df.shape is (297, 13)
+2022-11-03 21:42:33,708	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:42:33,738	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:42:33,740	INFO	data.shape is (1, 13)
+2022-11-03 21:42:33,741	INFO	test_df.shape is (1, 13)
+2022-11-03 21:42:33,776	INFO	predicts are [0]
+2022-11-03 21:42:42,836	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/heart_cleveland_upload.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:42:42,840	INFO	data.shape is (297, 14)
+2022-11-03 21:42:42,841	INFO	test_df.shape is (297, 13)
+2022-11-03 21:42:42,851	INFO	predicts are [1 0 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 1 1 1 0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 0 1 1 1 0 0 1 0 0 1 1 1 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 0 1 1
+ 1 1 1 0 1 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 1
+ 1 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1
+ 1 1 0 1 1 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 0 0 1 0 1 1 0
+ 1]
+2022-11-03 21:42:42,860	INFO	start predict pipeline with params PredictPipelineParams(path_to_data='data/random_line.csv', path_to_output='models/preds.npy', path_to_model='models/model.pkl', feature_params=FeatureParams(categorical_features=['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal'], numerical_features=['age', 'trestbps', 'chol', 'thalach', 'oldpeak'], features_to_drop=[], target_col='condition', use_log_trick=True), splitting_params=SplittingParams(val_size=1.0, random_state=42), train_params=TrainingParams(model_type='LogisticRegression', random_state=42), downloading_params=None, use_mlflow=False, mlflow_uri='http://18.156.5.226/', mlflow_experiment='inference_demo')
+2022-11-03 21:42:42,864	INFO	data.shape is (1, 13)
+2022-11-03 21:42:42,865	INFO	test_df.shape is (1, 13)
+2022-11-03 21:42:42,874	INFO	predicts are [1]
