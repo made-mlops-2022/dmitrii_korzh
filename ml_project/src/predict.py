@@ -25,14 +25,7 @@ from src.models import (
     load_model
 )
 # import mlflow
-
 from src.models.model_fit_predict import create_inference_pipeline
-
-
-# logger = logging.getLogger(__name__)
-# handler = logging.StreamHandler(sys.stdout)
-# logger.setLevel(logging.INFO)
-# logger.addHandler(handler)
 
 from src.logs.return_log_config import return_predict_config
 log_config = return_predict_config()
