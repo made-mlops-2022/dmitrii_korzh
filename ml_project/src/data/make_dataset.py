@@ -1,16 +1,8 @@
 # -*- coding: utf-8 -*-
-from typing import Tuple, NoReturn
-
+from typing import Tuple
 import pandas as pd
-# from boto3 import client
 from sklearn.model_selection import train_test_split
-# import src
 from src.entities import SplittingParams
-
-
-# def download_data_from_s3(s3_bucket: str, s3_path: str, output: str) -> NoReturn:
-#     s3 = client("s3")
-#     s3.download_file(s3_bucket, s3_path, output)
 
 
 def read_data(path: str) -> pd.DataFrame:
@@ -19,19 +11,17 @@ def read_data(path: str) -> pd.DataFrame:
 
 
 def split_train_val_data(
-    data: pd.DataFrame, params: SplittingParams, isPredict=False
+    data: pd.DataFrame, params: SplittingParams, is_predict=False
 ) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """
 
     :rtype: object
     """
-    if isPredict == False:
+    if not is_predict:
         train_data, val_data = train_test_split(
             data, test_size=params.val_size, random_state=params.random_state
         )
     else:
         train_data = None
         val_data = data
-    # train_data = train_data.reset_index()
-    # val_data = val_data.reset_index()
     return train_data, val_data
