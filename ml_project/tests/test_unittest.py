@@ -1,5 +1,7 @@
 import unittest
 from unittest.mock import patch
+import logging
+import sys
 import src
 import os
 import numpy as np
@@ -26,9 +28,13 @@ from src.models import (
 )
 
 from src.models.model_fit_predict import create_inference_pipeline
+logger = logging.getLogger(__name__)
+handler = logging.StreamHandler(sys.stdout)
+logger.setLevel(logging.INFO)
+logger.addHandler(handler)
 
 class DoesntExists(Exception):
-    print('File doesnt exist')
+    logger.info(f"Tests. File with data doesnt exist")
 
 
 class TestProject(unittest.TestCase):
@@ -43,7 +49,6 @@ class TestProject(unittest.TestCase):
         config_path = "config/predict_config_logreg.yaml"
         predict_pipeline_params = read_predict_pipeline_params(config_path)
         _, outputs = src.predict.run_predict_pipeline(predict_pipeline_params)
-        # print(len(outputs))
 
         self.assertEqual(len(outputs), 297)
         self.assertEqual(isinstance(outputs, np.ndarray), True)
@@ -72,11 +77,8 @@ class TestProject(unittest.TestCase):
         _, outputs = src.predict.run_predict_pipeline(predict_pipeline_params)
 
         self.assertEqual(len(outputs), 1)
-        self.assertEqual((outputs in [0, 1]), True)
-        self.assertEqual(isinstance(outputs, np.ndarray), True)
-    
-    # def test_train_acc(self, acc):
-    #     return self.assertGreater(acc, 0.0)
+        self.assertTrue(outputs in [0, 1])
+        self.assertTrue(isinstance(outputs, np.ndarray))
 
     def test_training_procedure(self):
         config_path = "config/train_config_logreg.yaml"
@@ -107,7 +109,8 @@ class TestProject(unittest.TestCase):
         b = (len(val_df) / len(data))
         b1 = (b < training_pipeline_params.splitting_params.val_size * 1.1)
         b2 = (b > training_pipeline_params.splitting_params.val_size * 0.9)
-        self.assertEqual((b1 and b2), True)
+        self.assertTrue(b1)
+        self.assertTrue(b2)
 
         val_target = extract_target(val_df, training_pipeline_params.feature_params)
 
@@ -119,7 +122,6 @@ class TestProject(unittest.TestCase):
         transformer = build_transformer(training_pipeline_params.feature_params)
         transformer.fit(train_df)
         train_features = make_features(transformer, train_df)
-        # print(train_features)
 
         model = train_model(
             train_features, train_target, training_pipeline_params.train_params
@@ -162,7 +164,6 @@ class TestProject(unittest.TestCase):
         transformer = build_transformer(training_pipeline_params.feature_params)
         transformer.fit(train_df)
         train_features = make_features(transformer, train_df)
-        # print(train_features)
 
         self.assertGreater(train_features.mean(), -0.3)
         self.assertLess(train_features.mean(), 0.3)

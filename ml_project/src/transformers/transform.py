@@ -15,6 +15,8 @@ class CustomScaler(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, col):
+        if (self.mean == None or self.std == None):
+            raise ValueError('You probably havent fitted the scaler yet')
         x = col.copy()
         x = (x - self.mean) / self.std
         return x

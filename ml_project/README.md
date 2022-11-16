@@ -18,17 +18,17 @@ pip install -e .
 
 3. Обучение модели
 ```
-python3 src/train.py configs/train_config_logreg.yaml
+python3 src/train.py config/train_config_logreg.yaml
 или
-python3 src/train.py configs/train_config_rf.yaml
+python3 src/train.py config/train_config_rf.yaml
 ```
 или создайте свой конфиг
 
 
 4. Инференс
 ```
-python3 src/predict.py configs/predict_config_logreg.yaml
+python3 src/predict.py config/predict_config_logreg.yaml
 или
-python3 src/predict.py configs/predict_config_rf.yaml
+python3 src/predict.py config/predict_config_rf.yaml
 ```
 укажите в конфиге путь до данных.

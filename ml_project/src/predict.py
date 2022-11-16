@@ -36,29 +36,11 @@ def predict_pipeline(config_path: str):
     predict_pipeline_params = read_predict_pipeline_params(config_path)
     if predict_pipeline_params.use_mlflow:
         pass
-
-        # mlflow.set_tracking_uri(predict_pipeline_params.mlflow_uri)
-        # mlflow.set_experiment(predict_pipeline_params.mlflow_experiment)
-        # with mlflow.start_run():
-        #     mlflow.log_artifact(config_path)
-        #     model_path, metrics = run_train_pipeline(predict_pipeline_params)
-        #     mlflow.log_metrics(metrics)
-        #     mlflow.log_artifact(model_path)
     else:
         return run_predict_pipeline(predict_pipeline_params)
 
 
 def run_predict_pipeline(predict_pipeline_params):
-    # downloading_params = predict_pipeline_params.downloading_params
-    # if downloading_params:
-    #     os.makedirs(downloading_params.output_folder, exist_ok=True)
-    #     for path in downloading_params.paths:
-    #         download_data_from_s3(
-    #             downloading_params.s3_bucket,
-    #             path,
-    #             os.path.join(downloading_params.output_folder, Path(path).name),
-    #         )
-
     logger.info(f"start predict pipeline with params {predict_pipeline_params}")
     data = read_data(predict_pipeline_params.path_to_data)
     logger.info(f"data.shape is {data.shape}")
