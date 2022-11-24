@@ -1,3 +1,4 @@
+
 from sklearn.base import BaseEstimator, TransformerMixin
 import numpy as np
 
@@ -15,7 +16,7 @@ class CustomScaler(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, col):
-        if (None in self.mean or None in self.std):
+        if (self.mean == None or self.std == None):
             raise ValueError('You probably havent fitted the scaler yet')
         x = col.copy()
         x = (x - self.mean) / self.std
