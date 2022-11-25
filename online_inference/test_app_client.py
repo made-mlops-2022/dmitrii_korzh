@@ -27,17 +27,19 @@ def test_health():
 
     
 def test_predict():
-    data = [50, 0, 0, 100, 50, 0, 0, 90, 0, 0, 0, 0, 0]
-    config = load_config()
-    url = f"http://{config['host']}:{config['port']}/predict/"
-    response = requests.post(url, json={"data": [data], "feature_names": COLUMNS})
-    # req = {'data': [data], 'feature_names': COLUMNS}
-    # response = client.post("/predict/", json={"data": [data], "feature_names": COLUMNS})
-    assert 200 == response.status_code
-    assert response.json()[0]['disease'] == 0
+    with client:
+        data = [50, 0, 0, 100, 50, 0, 0, 90, 0, 0, 0, 0, 0]
+        config = load_config()
+        # url = f"http://{config['host']}:{config['port']}/predict/"
+        # response = requests.post(url, json={"data": [data], "feature_names": COLUMNS})
+        req = {'data': [data], 'feature_names': COLUMNS}
+        response = client.post("/predict/", json={"data": [data], "feature_names": COLUMNS})
+        assert 200 == response.status_code
+        assert response.json()[0]['disease'] == 0
 
 def test_incorrect():
     config = load_config()
-    url = f"http://{config['host']}:{config['port']}/predict/"
-    response = requests.post(url, json={"blabla": 0, "dada": "hello"})
-    assert response.status_code == 422
+    with client:
+        url = f"http://{config['host']}:{config['port']}/predict/"
+        response = client.post(url, json={"blabla": 0, "dada": "hello"})
+        assert response.status_code == 422
