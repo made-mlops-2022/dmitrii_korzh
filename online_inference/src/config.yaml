@@ -1,0 +1,8 @@
+host: '0.0.0.0'
+port: 8112
+model_path: 'model/model_lr.pkl'
+transformer_path: 'model/transformer.pkl'
+logging:
+  level: 'INFO'
+  format: '%(asctime)s %(levelname)s %(message)s'
+  date_format: '%Y-%m-%d %H:%M:%S'
